@@ -2,7 +2,7 @@ package yolov8_processor
 
 import (
 	"errors"
-	"gopher_spy/detectors/yolov8m/yolov8_model"
+	"gopher_spy/detectors/yolov8/yolov8_model"
 	"image"
 )
 

@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
-	"gopher_spy/detectors/yolov8m/yolov8_processor"
+	"gopher_spy/detectors/yolov8/yolov8_processor"
 	apiv1 "gopher_spy/protos/gen/go/detector/api/v1"
 	"image"
 )

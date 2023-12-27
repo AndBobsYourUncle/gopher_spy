@@ -3,7 +3,7 @@ package yolov8_model
 import ort "github.com/yalue/onnxruntime_go"
 
 const (
-	modelPath = "./detectors/yolov8m/yolov8m.onnx"
+	modelPath = "./detectors/yolov8/yolov8m.onnx"
 )
 
 type modelSession struct {

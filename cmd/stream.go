@@ -126,7 +126,7 @@ var streamCommand = &cobra.Command{
 					continue
 				}
 
-				imgFrames <- img
+				//imgFrames <- img
 
 				fps = 1 / time.Since(lastTime).Seconds()
 				lastTime = time.Now()
@@ -135,8 +135,6 @@ var streamCommand = &cobra.Command{
 					processingImage.Store(true)
 					detectedImg <- img
 				}
-
-				//log.Printf("decoded frame with PTS %v and size %v", pts, img.Bounds().Max)
 			}
 		})
 
