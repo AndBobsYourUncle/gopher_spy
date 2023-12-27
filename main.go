@@ -1,1 +1,7 @@
-package gopher_eye
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, world!")
+}
