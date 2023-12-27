@@ -1,4 +1,4 @@
-package handlers
+package yolov8_processor
 
 import (
 	"github.com/nfnt/resize"
@@ -17,7 +17,7 @@ type Detection struct {
 // of detected objects. Each object contain the bounding box of
 // this object, the type of object and the probability
 // Returns array of detected objects in a format [[x1,y1,x2,y2,object_type,probability],..]
-func process_output(output []float32, img_width, img_height int64) []*Detection {
+func (processor *processorImpl) process_output(output []float32, img_width, img_height int64) []*Detection {
 	boxes := [][]interface{}{}
 	for index := 0; index < 8400; index++ {
 		class_id, prob := 0, float32(0.0)
@@ -30,7 +30,7 @@ func process_output(output []float32, img_width, img_height int64) []*Detection 
 		if prob < 0.5 {
 			continue
 		}
-		label := yolo_classes[class_id]
+		label := processor.yoloModel.ClassName(class_id)
 		xc := output[index]
 		yc := output[8400+index]
 		w := output[2*8400+index]
