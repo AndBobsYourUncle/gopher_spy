@@ -126,7 +126,11 @@ var streamCommand = &cobra.Command{
 					continue
 				}
 
-				//imgFrames <- img
+				select {
+				case imgFrames <- img:
+				default:
+					// we drop the frame because we aren't currently serving the mjpeg stream
+				}
 
 				fps = 1 / time.Since(lastTime).Seconds()
 				lastTime = time.Now()
@@ -155,7 +159,6 @@ var streamCommand = &cobra.Command{
 
 				t1 := time.Now()
 
-				//detections, detErr := detect_objects_on_image(img)
 				resp, detErr := detectionClient.DetectFrame(context.Background(), &apiv1.DetectFrameRequest{
 					Frame: imgToBytes(img),
 				})
