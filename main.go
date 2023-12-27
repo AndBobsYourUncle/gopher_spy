@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/bluenviron/gortsplib/v4"
 	"github.com/bluenviron/gortsplib/v4/pkg/base"
 	"github.com/bluenviron/gortsplib/v4/pkg/format"
@@ -183,7 +184,7 @@ func main() {
 					img.(*image.RGBA),
 					int(detection.X1),
 					int(detection.Y1),
-					detection.Label,
+					fmt.Sprintf("%s %.2f", detection.Label, detection.Probability),
 				)
 			}
 
