@@ -13,10 +13,10 @@ message DetectFrameRequest {
 message Detection {
   string label = 1;
   float confidence = 2;
-  int32 x = 3;
-  int32 y = 4;
-  int32 width = 5;
-  int32 height = 6;
+  float x1 = 3;
+  float y1 = 4;
+  float x2 = 5;
+  float y2 = 6;
 }
 
 message DetectFrameResponse {
