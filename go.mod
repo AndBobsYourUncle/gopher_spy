@@ -1,4 +1,4 @@
-module gopher_eye
+module gopher_spy
 
 go 1.21
 
