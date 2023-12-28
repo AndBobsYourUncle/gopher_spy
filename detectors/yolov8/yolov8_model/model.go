@@ -1,6 +1,9 @@
 package yolov8_model
 
-import ort "github.com/yalue/onnxruntime_go"
+import (
+	ort "github.com/yalue/onnxruntime_go"
+	"os"
+)
 
 const (
 	modelPath = "./detectors/yolov8/yolov8m.onnx"
@@ -63,8 +66,7 @@ var yoloClasses = []string{
 }
 
 func getSharedLibPath() string {
-	// brew install onnxruntime
-	return "/opt/homebrew/Cellar/onnxruntime/1.16.3/lib/libonnxruntime.1.16.3.dylib"
+	return os.Getenv("ONNX_RUNTIME_LIB")
 }
 
 func initYolo8Session() (*modelSession, error) {
